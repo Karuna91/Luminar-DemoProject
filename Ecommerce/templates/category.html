@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid text-center mt-3 mb-3">
+    <h2>Our Collections</h2>
+    <p>Meesho had 209,000 users and 1.2 million orders per month in February 2019 and 563,000 users and 3.1 million orders<br>
+        per month in March 2020.[10] It saw big growth during 2021 and 2022. Meesho's monthly transacting user<br>
+        count rose 26 times during 2020–2022. Globally, Meesho mobile app was among the top most downloaded apps in 2021.<br>
+        In 2022, Meesho had about 120 million monthly users and about 910 million orders were made through the platform.<br>
+        It soon became one of India's fastest growing e-commerce platforms.</p>
+    <div class="row mt-5 me-5 ms-5 mb-5 p-6">
+    {% for i in c %}
+        <div class="col-sm-3">
+        <div class="card" style="width:20rem;">
+            <img src="{{i.image.url}}" class="card-img-top" style="height:300px;"  alt="...">
+        <div class="card-body">
+             <h5 class="card-title">{{i.name}}</h5>
+             <p class="card-text">{{i.desc}}</p>
+             <a href="{% url 'shop:product' i.id %}" class="btn btn-primary">Shop Now</a>
+        </div>
+  </div>
+</div>
+    {% endfor %}
+</div>
+
+</div>
+{% endblock %}

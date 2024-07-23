@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Login</title>
+    {% endblock %}
+
+{% block content %}
+
+<form method="post" class="container text-center bg-warning mt-5">
+
+    {% csrf_token %}        <!-- security feature used by django -->
+
+    <div class="mb-3">
+      <label class="form-label">Usename</label>
+      <input type="text" class="form-control" name="u">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control" name="p">
+    </div>
+
+    <div>
+    <input type="submit">
+    </div>
+</form>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}
+
+</body>
+</html>

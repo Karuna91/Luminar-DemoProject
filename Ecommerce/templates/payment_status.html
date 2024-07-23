@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+{% if status == True %}
+<link rel="stylesheet" href="{% static 'css/payment_done.css' %}">
+<div class="container-fluid">
+  <div class="success">&#10004;</div>
+  <h1>Order Placed</h1>
+  <h2 class="title">Payment Successful</h2>
+  <a href="{% url 'home.html' %}" class="button">Continue Shopping</a>
+  {% else %}
+    <h4>Payment is not successful</h4>
+
+  {% endif %}
+  </div>
+{% endblock %}
+
